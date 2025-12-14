@@ -1,0 +1,201 @@
+/* Projects Page Specific Styles */
+body.projects-page {
+    background: var(--background-light);
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    padding-top: var(--navbar-height);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.projects-page .gradient-1 {
+    left: 40%;
+    top: 50%;
+    width: min(1115px, 100vw);
+    height: auto;
+}
+
+.projects-page .gradient-2 {
+    left: -5%;
+    top: -10%;
+    width: min(1155px, 100vw);
+    height: auto;
+}
+
+.projects-page .gradient-3 {
+    left: 40%;
+    top: -5%;
+    width: min(1249px, 100vw);
+    height: auto;
+}
+
+/* Projects Title */
+.projects-title {
+    position: relative;
+    text-align: center;
+    font-weight: 800;
+    font-size: clamp(28px, 4vw, 36px);
+    color: var(--text-dark);
+    z-index: 50;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.3s forwards;
+    padding-top: calc(var(--navbar-height) + 50px);
+    margin-bottom: 20px;
+}
+
+/* Description Text */
+.projects-description {
+    position: relative;
+    max-width: 697px;
+    margin: 0 auto 40px;
+    font-weight: 400;
+    font-size: clamp(14px, 1.8vw, 16px);
+    line-height: 1.6;
+    text-align: center;
+    color: var(--text-dark);
+    z-index: 50;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.5s forwards;
+    padding: 0 20px;
+}
+
+/* Projects Scroll Section */
+.projects-section {
+    position: relative;
+    max-width: 885px;
+    margin: 0 auto;
+    padding: 20px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(60px, 10vw, 110px);
+    padding-bottom: calc(var(--footer-height) + 40px);
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.7s forwards;
+}
+
+/* Project Card */
+.project-card {
+    width: 100%;
+    max-width: 885px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Blue Vertical Bar */
+.project-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 50px;
+    background: var(--primary-color);
+}
+
+/* Left Content Section */
+.project-content {
+    flex: 1;
+    padding: clamp(30px, 5vw, 53px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.project-title {
+    font-weight: 800;
+    font-size: clamp(18px, 2.5vw, 24px);
+    color: var(--primary-color);
+    margin-bottom: 6px;
+}
+
+.project-role {
+    font-weight: 700;
+    font-size: clamp(14px, 1.8vw, 16px);
+    color: var(--text-dark);
+    margin-bottom: 30px;
+}
+
+.project-description {
+    font-weight: 400;
+    font-size: clamp(14px, 1.8vw, 18px);
+    line-height: 1.5;
+    color: var(--text-dark);
+}
+
+/* Right Image Section */
+.project-image {
+    width: 375px;
+    min-width: 250px;
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+    .projects-section {
+        padding: 20px 15px calc(var(--footer-height) + 40px);
+    }
+
+    .project-card {
+        flex-direction: column;
+    }
+
+    .project-image {
+        width: 100%;
+        min-width: 100%;
+        height: 300px;
+        order: -1;
+    }
+
+    .project-content {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-title {
+        padding-top: calc(var(--navbar-height) + 30px);
+    }
+
+    .projects-description {
+        margin-bottom: 30px;
+    }
+
+    .projects-section {
+        gap: 40px;
+    }
+
+    .project-image {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-card {
+        border-radius: 10px;
+    }
+
+    .project-content {
+        padding: 20px 15px;
+    }
+
+    .project-image {
+        height: 200px;
+    }
+}

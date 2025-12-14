@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Walter De Lara</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body class="contact-page">
+    <!-- Gradient Background Images -->
+    <img src="images/contact-gradient-1.svg" alt="Gradient 1" class="gradient-1">
+    <img src="images/contact-gradient-2.svg" alt="Gradient 2" class="gradient-2">
+    <img src="images/contact-gradient-3.svg" alt="Gradient 3" class="gradient-3">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-left">Walter De Lara / PROJECT MANAGER</div>
+        <div class="navbar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-right">
+            <a href="index.html" class="nav-link">ABOUT ME</a>
+            <a href="resume.html" class="nav-link">RESUME</a>
+            <a href="projects.html" class="nav-link">PROJECTS</a>
+            <a href="contact.html" class="nav-link active">CONTACT</a>
+        </div>
+    </nav>
+
+    <!-- Contact Form Container -->
+    <div class="contact-form-container">
+        <h1 class="contact-title">Contact Us</h1>
+        
+        <form id="contactForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName" class="form-label">First Name*</label>
+                    <input 
+                        type="text" 
+                        id="firstName" 
+                        name="firstName" 
+                        class="form-input" 
+                        placeholder=""
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="form-label">Last Name*</label>
+                    <input 
+                        type="text" 
+                        id="lastName" 
+                        name="lastName" 
+                        class="form-input" 
+                        placeholder=""
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="email" class="form-label">Email*</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    class="form-input" 
+                    placeholder=""
+                    required
+                >
+            </div>
+            <br>
+            <br>
+
+            <div class="form-group full-width">
+                <label for="subject" class="form-label">Subject*</label>
+                <input 
+                    type="text" 
+                    id="subject" 
+                    name="subject" 
+                    class="form-input" 
+                    placeholder=""
+                >
+            </div>
+            <br>
+            <br>
+
+            <div class="form-group full-width">
+                <label for="message" class="form-label">Message*</label>
+                <textarea 
+                    id="message" 
+                    name="message" 
+                    class="form-textarea" 
+                    placeholder=""
+                    rows="4"
+                ></textarea>
+            </div>
+
+            <button type="submit" class="send-button">SEND</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-left">© 2025 Walter De Lara. All rights reserved.</div>
+        <div class="footer-right">
+            <div class="footer-contact">
+                <div class="footer-contact-label">Call</div>
+                <div class="footer-contact-value">0915-897-987</div>
+            </div>
+            <div class="footer-contact">
+                <div class="footer-contact-label">Write</div>
+                <div class="footer-contact-value">walterdelara@gmail.com</div>
+            </div>
+            <div class="footer-social">
+                <div class="footer-social-label">Follow</div>
+                <div class="social-icons">
+                    <a href="#" class="social-icon-link">
+                        <img src="images/facebook-icon.svg" alt="Facebook" class="social-icon">
+                    </a>
+                    <a href="#" class="social-icon-link">
+                        <img src="images/instagram-icon.svg" alt="Instagram" class="social-icon">
+                    </a>
+                    <a href="#" class="social-icon-link">
+                        <img src="images/linkedin-icon.svg" alt="LinkedIn" class="social-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main-enhanced.js"></script>
+</body>
+</html>
