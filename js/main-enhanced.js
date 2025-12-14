@@ -55,6 +55,296 @@ function initResumeScrollAnimations() {
     }
 }
 
+// Experience Cards Scroll Visibility
+function initExperienceScrollVisibility() {
+    if (!document.querySelector('.resume-page')) return;
+
+    const experienceCards = document.querySelectorAll('.experience-card');
+    const experienceContainer = document.querySelector('.experience-scroll-container');
+    
+    if (!experienceContainer || experienceCards.length === 0) return;
+
+    // Show first card immediately
+    if (experienceCards[0]) {
+        experienceCards[0].classList.add('visible');
+    }
+
+    // Intersection Observer for scroll visibility (both directions)
+    const observerOptions = {
+        root: experienceContainer,
+        rootMargin: '0px',
+        threshold: 0.5 // Card must be 50% visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const card = entry.target;
+            const isFirstCard = card === experienceCards[0];
+            
+            if (entry.isIntersecting) {
+                // Show card when scrolling into view
+                card.classList.add('visible');
+            } else {
+                // Hide card when scrolling out of view (except first card at top)
+                if (!isFirstCard) {
+                    card.classList.remove('visible');
+                } else {
+                    // Check if we're at the very top - keep first card visible
+                    const scrollTop = experienceContainer.scrollTop;
+                    if (scrollTop > 50) {
+                        card.classList.remove('visible');
+                    }
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observe all cards
+    experienceCards.forEach((card) => {
+        observer.observe(card);
+    });
+
+    // Handle scroll to top - keep first card visible
+    experienceContainer.addEventListener('scroll', () => {
+        const scrollTop = experienceContainer.scrollTop;
+        if (scrollTop <= 50 && experienceCards[0]) {
+            experienceCards[0].classList.add('visible');
+        }
+    });
+}
+
+// Skillset Cards Scroll Visibility
+function initSkillScrollVisibility() {
+    if (!document.querySelector('.resume-page')) return;
+
+    const skillCards = document.querySelectorAll('.skill-card');
+    const skillContainer = document.querySelector('.skill-scroll-container');
+    
+    if (!skillContainer || skillCards.length === 0) return;
+
+    // Show first card immediately
+    if (skillCards[0]) {
+        skillCards[0].classList.add('visible');
+    }
+
+    // Intersection Observer for scroll visibility (both directions)
+    const observerOptions = {
+        root: skillContainer,
+        rootMargin: '0px',
+        threshold: 0.5 // Card must be 50% visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const card = entry.target;
+            const isFirstCard = card === skillCards[0];
+            
+            if (entry.isIntersecting) {
+                // Show card when scrolling into view
+                card.classList.add('visible');
+            } else {
+                // Hide card when scrolling out of view (except first card at top)
+                if (!isFirstCard) {
+                    card.classList.remove('visible');
+                } else {
+                    // Check if we're at the very top - keep first card visible
+                    const scrollTop = skillContainer.scrollTop;
+                    if (scrollTop > 50) {
+                        card.classList.remove('visible');
+                    }
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observe all cards
+    skillCards.forEach((card) => {
+        observer.observe(card);
+    });
+
+    // Handle scroll to top - keep first card visible
+    skillContainer.addEventListener('scroll', () => {
+        const scrollTop = skillContainer.scrollTop;
+        if (scrollTop <= 50 && skillCards[0]) {
+            skillCards[0].classList.add('visible');
+        }
+    });
+}
+
+// Personal Info Cards Scroll Visibility
+function initPersonalScrollVisibility() {
+    if (!document.querySelector('.resume-page')) return;
+
+    const personalCards = document.querySelectorAll('.personal-card');
+    const personalContainer = document.querySelector('.personal-scroll-container');
+    
+    if (!personalContainer || personalCards.length === 0) return;
+
+    // Show first card immediately
+    if (personalCards[0]) {
+        personalCards[0].classList.add('visible');
+    }
+
+    // Intersection Observer for scroll visibility (both directions)
+    const observerOptions = {
+        root: personalContainer,
+        rootMargin: '0px',
+        threshold: 0.5 // Card must be 50% visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const card = entry.target;
+            const isFirstCard = card === personalCards[0];
+            
+            if (entry.isIntersecting) {
+                // Show card when scrolling into view
+                card.classList.add('visible');
+            } else {
+                // Hide card when scrolling out of view (except first card at top)
+                if (!isFirstCard) {
+                    card.classList.remove('visible');
+                } else {
+                    // Check if we're at the very top - keep first card visible
+                    const scrollTop = personalContainer.scrollTop;
+                    if (scrollTop > 50) {
+                        card.classList.remove('visible');
+                    }
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observe all cards
+    personalCards.forEach((card) => {
+        observer.observe(card);
+    });
+
+    // Handle scroll to top - keep first card visible
+    personalContainer.addEventListener('scroll', () => {
+        const scrollTop = personalContainer.scrollTop;
+        if (scrollTop <= 50 && personalCards[0]) {
+            personalCards[0].classList.add('visible');
+        }
+    });
+}
+
+// Education Cards Scroll Visibility
+function initEducationScrollVisibility() {
+    if (!document.querySelector('.resume-page')) return;
+
+    const educationCards = document.querySelectorAll('.education-card');
+    const educationContainer = document.querySelector('.education-scroll-container');
+    
+    if (!educationContainer || educationCards.length === 0) return;
+
+    // Show first card immediately
+    if (educationCards[0]) {
+        educationCards[0].classList.add('visible');
+    }
+
+    // Intersection Observer for scroll visibility (both directions)
+    const observerOptions = {
+        root: educationContainer,
+        rootMargin: '0px',
+        threshold: 0.5 // Card must be 50% visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const card = entry.target;
+            const isFirstCard = card === educationCards[0];
+            
+            if (entry.isIntersecting) {
+                // Show card when scrolling into view
+                card.classList.add('visible');
+            } else {
+                // Hide card when scrolling out of view (except first card at top)
+                if (!isFirstCard) {
+                    card.classList.remove('visible');
+                } else {
+                    // Check if we're at the very top - keep first card visible
+                    const scrollTop = educationContainer.scrollTop;
+                    if (scrollTop > 50) {
+                        card.classList.remove('visible');
+                    }
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observe all cards
+    educationCards.forEach((card) => {
+        observer.observe(card);
+    });
+
+    // Handle scroll to top - keep first card visible
+    educationContainer.addEventListener('scroll', () => {
+        const scrollTop = educationContainer.scrollTop;
+        if (scrollTop <= 50 && educationCards[0]) {
+            educationCards[0].classList.add('visible');
+        }
+    });
+}
+
+// Projects Page Scroll Visibility
+function initProjectsScrollVisibility() {
+    if (!document.querySelector('.projects-page')) return;
+
+    const projectCards = document.querySelectorAll('.project-card');
+    const projectsSection = document.querySelector('.projects-section');
+    
+    if (!projectsSection || projectCards.length === 0) return;
+
+    // Show first card immediately
+    if (projectCards[0]) {
+        projectCards[0].classList.add('visible');
+    }
+
+    // Intersection Observer for scroll visibility (both directions)
+    const observerOptions = {
+        root: projectsSection,
+        rootMargin: '0px',
+        threshold: 0.5 // Card must be 50% visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const card = entry.target;
+            const isFirstCard = card === projectCards[0];
+            
+            if (entry.isIntersecting) {
+                // Show card when scrolling into view
+                card.classList.add('visible');
+            } else {
+                // Hide card when scrolling out of view (except first card at top)
+                if (!isFirstCard) {
+                    card.classList.remove('visible');
+                } else {
+                    // Check if we're at the very top - keep first card visible
+                    const scrollTop = projectsSection.scrollTop;
+                    if (scrollTop > 50) {
+                        card.classList.remove('visible');
+                    }
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observe all cards
+    projectCards.forEach((card) => {
+        observer.observe(card);
+    });
+
+    // Handle scroll to top - keep first card visible
+    projectsSection.addEventListener('scroll', () => {
+        const scrollTop = projectsSection.scrollTop;
+        if (scrollTop <= 50 && projectCards[0]) {
+            projectCards[0].classList.add('visible');
+        }
+    });
+}
+
 // Mobile Navigation Toggle
 function initMobileNav() {
     const navToggle = document.querySelector('.navbar-toggle');
@@ -339,8 +629,8 @@ function initScrollAnimations() {
         }
     });
 
-    // Enhanced hover animations for cards
-    document.querySelectorAll('.project-card, .resume-card, .content-box').forEach(card => {
+    // Enhanced hover animations for cards (excluding project cards in scroll container)
+    document.querySelectorAll('.resume-card, .content-box').forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-8px) scale(1.02)';
             this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.25)';
@@ -351,6 +641,19 @@ function initScrollAnimations() {
             this.style.transform = 'translateY(0) scale(1)';
             this.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.15)';
             this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+        });
+    });
+
+    // Project cards hover effect (subtle, doesn't interfere with scroll)
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.boxShadow = '0px 15px 40px rgba(0, 0, 0, 0.2)';
+            this.style.transition = 'box-shadow 0.3s ease';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.boxShadow = '0px 10px 30px rgba(0, 0, 0, 0.15)';
+            this.style.transition = 'box-shadow 0.3s ease';
         });
     });
 
@@ -563,6 +866,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initDownloadCV();
     initScrollAnimations();
     initResumeScrollAnimations();
+    initProjectsScrollVisibility();
+    initEducationScrollVisibility();
+    initExperienceScrollVisibility();
+    initPersonalScrollVisibility();
+    initSkillScrollVisibility();
     showWelcomeToast();
     initPageAnimations();
     

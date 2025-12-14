@@ -12,24 +12,15 @@ body.projects-page {
 }
 
 .projects-page .gradient-1 {
-    left: 40%;
-    top: 50%;
-    width: min(1115px, 100vw);
-    height: auto;
+    display: none;
 }
 
 .projects-page .gradient-2 {
-    left: -5%;
-    top: -10%;
-    width: min(1155px, 100vw);
-    height: auto;
+    display: none;
 }
 
 .projects-page .gradient-3 {
-    left: 40%;
-    top: -5%;
-    width: min(1249px, 100vw);
-    height: auto;
+    display: none;
 }
 
 /* Projects Title */
@@ -62,25 +53,49 @@ body.projects-page {
     padding: 0 20px;
 }
 
+/* Content Wrapper for Projects */
+.projects-page .content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* Projects Scroll Section */
 .projects-section {
     position: relative;
     max-width: 885px;
+    width: 100%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px 100px 20px;
     z-index: 20;
     display: flex;
     flex-direction: column;
     gap: clamp(60px, 10vw, 110px);
-    padding-bottom: calc(var(--footer-height) + 40px);
+    height: calc(100vh - var(--navbar-height) - 100px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
     opacity: 0;
     animation: fadeIn 0.8s ease-out 0.7s forwards;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar but keep functionality */
+.projects-section::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
 }
 
 /* Project Card */
 .project-card {
     width: 100%;
     max-width: 885px;
+    min-height: 505px;
+    height: 505px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border: none;
@@ -89,12 +104,29 @@ body.projects-page {
     position: relative;
     display: flex;
     overflow: hidden;
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow var(--transition-speed);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    flex-shrink: 0;
+    opacity: 0;
+    transform: translateY(30px);
+    visibility: hidden;
+}
+
+.project-card:first-child {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 /* Blue Vertical Bar */
@@ -149,11 +181,15 @@ body.projects-page {
 /* Mobile Responsive */
 @media (max-width: 992px) {
     .projects-section {
-        padding: 20px 15px calc(var(--footer-height) + 40px);
+        padding: 0 15px 80px 15px;
+        gap: 40px;
+        height: calc(100vh - var(--navbar-height) - 80px);
     }
 
     .project-card {
         flex-direction: column;
+        min-height: 450px;
+        height: 450px;
     }
 
     .project-image {
@@ -178,7 +214,14 @@ body.projects-page {
     }
 
     .projects-section {
-        gap: 40px;
+        padding: 0 15px 60px 15px;
+        gap: 0;
+        height: calc(100vh - var(--navbar-height) - 60px);
+    }
+
+    .project-card {
+        min-height: 100%;
+        height: 100%;
     }
 
     .project-image {
@@ -189,6 +232,8 @@ body.projects-page {
 @media (max-width: 480px) {
     .project-card {
         border-radius: 10px;
+        min-height: 100%;
+        height: 100%;
     }
 
     .project-content {
@@ -197,5 +242,11 @@ body.projects-page {
 
     .project-image {
         height: 200px;
+    }
+
+    .projects-section {
+        padding: 0 15px 40px 15px;
+        gap: 0;
+        height: calc(100vh - var(--navbar-height) - 40px);
     }
 }

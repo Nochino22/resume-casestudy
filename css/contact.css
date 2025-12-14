@@ -46,14 +46,17 @@ body.contact-page {
     padding: clamp(40px, 8vw, 86px);
     opacity: 0;
     animation: slideUp 0.8s ease-out 0.3s forwards;
-    margin: 80px auto 60px auto;
+    margin: 0 auto 60px auto;
 }
 
 .contact-title {
+    position: relative;
+    z-index: 50;
+    text-align: center;
     font-weight: 700;
     font-size: clamp(32px, 6vw, 48px);
     color: var(--text-dark);
-    margin-bottom: clamp(40px, 8vw, 78px);
+    margin: 80px auto 30px;
 }
 
 .form-row {
@@ -70,6 +73,7 @@ body.contact-page {
 .form-group.full-width {
     flex: 1;
     width: 100%;
+    margin-bottom: 46px;
 }
 
 .form-label {
@@ -107,7 +111,9 @@ body.contact-page {
 
 .form-textarea {
     resize: none;
-    min-height: 100px;
+    min-height: 44px;
+    height: 44px;
+    line-height: 1.4;
 }
 
 .send-button {
@@ -127,6 +133,11 @@ body.contact-page {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Remove extra gap after the last field */
+.form-group.full-width:last-of-type {
+    margin-bottom: 0;
 }
 
 .send-button:hover {
@@ -159,12 +170,20 @@ body.contact-page {
     .contact-form-container {
         width: 95vw;
         padding: 30px 20px;
-        margin: 40px auto 60px auto;
+        margin: 0 auto 60px auto;
+    }
+
+    .contact-title {
+        margin: 50px auto 22px;
     }
 
     .form-row {
         flex-direction: column;
         gap: 30px;
+        margin-bottom: 30px;
+    }
+
+    .form-group.full-width {
         margin-bottom: 30px;
     }
 
@@ -175,12 +194,36 @@ body.contact-page {
 
 @media (max-width: 480px) {
     .contact-form-container {
-        width: 95vw;
-        padding: 25px 15px;
-        margin: 30px auto 50px auto;
+        width: 96vw;
+        padding: 22px 18px;
+        margin: 0 auto 44px auto;
+    }
+
+    .contact-title {
+        margin: 40px auto 18px;
+    }
+
+    .form-row {
+        gap: 18px;
+        margin-bottom: 18px;
+    }
+
+    .form-group.full-width {
+        margin-bottom: 18px;
+    }
+
+    .form-label {
+        margin-bottom: 10px;
+    }
+
+    .form-input,
+    .form-textarea {
+        font-size: 16px;
+        padding: 10px 0;
     }
 
     .send-button {
         width: 100%;
+        padding: 10px 0;
     }
 }

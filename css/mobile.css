@@ -1,0 +1,31 @@
+/* Mobile-only tweaks (kept separate on purpose) */
+
+@media (max-width: 768px) {
+    /* About page: center content text on mobile */
+    .about-page .content-section {
+        text-align: center;
+    }
+
+    .about-page .description {
+        text-align: center;
+        font-weight: 300;
+    }
+
+    .about-page .buttons-container {
+        justify-content: center;
+    }
+
+    /* Footer: keep social icons centered at the bottom on mobile */
+    .footer-right {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-social {
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
